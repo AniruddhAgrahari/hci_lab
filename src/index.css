@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #020617;
+  --color-card: #ffffff;
+  --color-card-foreground: #020617;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #020617;
+  --color-primary: #0f172a;
+  --color-primary-foreground: #f8fafc;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-accent: #f1f5f9;
+  --color-accent-foreground: #0f172a;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #020617;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --font-inter: "Inter", "system-ui", "sans-serif";
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-inter);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.fitts-target {
+  @apply absolute rounded-full transition-transform active:scale-95 cursor-pointer;
+  background: radial-gradient(circle at 30% 30%, #3b82f6, #1d4ed8);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.reaction-box {
+  @apply w-full h-64 rounded-xl flex items-center justify-center text-3xl font-bold cursor-pointer select-none transition-colors duration-200;
+}
+
+.affordance-btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95;
+}
